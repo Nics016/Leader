@@ -1,0 +1,46 @@
+/* Общие */
+/* заголовки */
+@font-face{
+	src: url('../fonts/SegoeUIBold.ttf');
+	font-family: 'SegoeUIBold';
+}
+
+/* Длинные тексты */
+@font-face{
+	src: url('../fonts/SegoeUIRegular.ttf');
+	font-family: 'SegoeUIRegular';
+}
+
+/* Краткие тексты */
+@font-face{
+	src: url('../fonts/SegoeUILight.ttf');
+	font-family: 'SegoeUILight';
+}
+
+/* Меню */
+@font-face{
+	src: url('../fonts/RobotoThin.ttf');
+	font-family: 'RobotoThin';
+}
+
+body{
+	margin: 0;
+	background-color: #fff;
+}
+
+#main-wrap{
+	font-family: NarrowSansRegular;
+	width: 100%;
+}
+
+.container{
+	display: block;
+	width: 1170px;
+	margin: 0 auto;
+}
+
+.clearfix:after{
+	content: '';
+	display: table;
+	clear: both;
+}
