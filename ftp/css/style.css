@@ -44,3 +44,146 @@ body{
 	display: table;
 	clear: both;
 }
+
+
+/* MODAL */
+
+#modal {
+	position: absolute;
+    display: none;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(195,200,202,0.7);
+}
+
+.modal-container {
+    display: none;
+	width: 800px;
+    height: 400px;
+    background-color: rgba(247, 247, 247, 0.7);
+    border-radius: 40px;
+    margin: 0 auto;
+    margin-top: calc((100vh - 400px) / 2); 
+}
+
+.modal-content {
+	width: 760px;
+    margin: 0 auto;
+    border-radius: 40px;
+    background-color: rgb(245, 245, 245);
+    position: relative;
+    top: 20px;
+}
+
+.modal-director-container {
+	padding: 10px;
+}
+
+.modal-director-avatar {
+	width: 120px;
+    height: 120px;
+    float: left;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.modal-director-avatar img {
+	display: block;
+    height: 100%;
+}
+
+.modal-director-meta {
+	margin-left: 20px;
+    float: left;
+    width: 600px
+}
+
+.modal-director-title-container {
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+}
+
+.modal-director-title {
+	display: block;
+    width: 500px;
+    float: left;
+    font-family: SegoeUIBold;
+    font-size: 18px;
+    color: #4b4e50;
+}
+
+.modal-director-text-container {
+	margin-top: 15px;
+    height: 120px;
+    overflow: hidden;
+}
+
+.modal-director-text {
+    color: #333;
+    font-size: 16px;
+    font-family: SegoeUILight;
+}
+
+.modal-close {
+    display: block;
+    width: 30px;
+    height: 30px;
+    float: right;
+    margin-right: 20px;
+    background: url(../img/modal-close.png) no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.modal-director-contacts-container {
+	margin: 0 auto;
+    margin-top: 135px;
+    width: 760px;
+}
+
+.modal-director-phone {
+    min-width: 155px;
+    float: left;
+    background-color: rgb(245, 245, 245);
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.modal-director-email {
+	min-width: 155px;
+    float: right;
+    background-color: rgb(245, 245, 245);
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-family: SegoeUIRegular;
+}
+
+.modal-contacts-text {
+    font-size: 17px;
+    color: #333333;
+    display: inline-block;
+    font-family: SegoeUIRegular;
+}
+
+.phone-icon {
+    background: url(../img/phone-icon.png) no-repeat;
+    background-size: cover;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 4px;
+}
+
+.email-icon {
+    background: url(../img/email-icon.png) no-repeat;
+    background-size: cover;
+    display: inline-block;
+    width: 32px;
+    height: 20px;
+    position: relative;
+    top: 4px;
+}

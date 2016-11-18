@@ -1,12 +1,12 @@
-.slider{
-	display: block;
-	background-image: url("../img/slider-pic.png");
-	background-repeat: no-repeat;
-	width: 100%;
-	max-width: 1920px;
-	margin: 0 auto;
+.slider-image { 
 	height: 400px;
-	background-size: 100% 400px;
+	overflow: hidden;
+	width: 100%;
+}
+
+.slider-image img {
+	display: block;
+	width: 100%;
 }
 
 .about{
@@ -26,6 +26,7 @@
 	color: #818D97;	
 	font-family: SegoeUIBold;
 	font-size: 22px;
+	margin-top: 10px;
 }
 
 .about-info-container{
@@ -34,6 +35,7 @@
 	padding-top: 20px;
 	padding-left: 20px;
 	padding-bottom: 5px;
+	margin-top: 20px;
 }
 
 .about-info{
@@ -46,9 +48,15 @@
 	float: left;
 	width: 120px;
 	height: 120px;
-	background-image: url("../img/main-about-pic.png");
 	background-repeat: no-repeat;
 	background-size: 120px 120px;
+	overflow: hidden;
+	border-radius: 50%;
+}
+
+.about-info-pic img {
+	display: block;
+	height: 100%;
 }
 
 .about-info-text{
@@ -58,15 +66,23 @@
 	margin-left: 50px;
 	color: #818D97;
 	font-family: SegoeUIRegular;
-	font-size: 16px;
+	font-size: 20px;
+} 
+ 
+.about-info-text p {
+	font-size: 18px;
 }
 
 .about-info-subtext{
 	display: block;
-	margin-top: 200px;
-	margin-left: 820px;
-	width: 350px;
-	color: #818D97;
-	font-family: SegoeUIRegular;
-	font-size: 18px;
+  margin-top: 30px;
+  color: #818D97;
+  font-family: SegoeUIRegular;
+  font-size: 18px;
+}
+
+.about-info-subtext-text{
+	display: block;
+	float: right;
+	margin-right: 70px;
 }

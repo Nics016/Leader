@@ -1,65 +1,38 @@
-<?php get_header();?>
-<main>
-	<div class="container clearfix">
-		<?php get_sidebar(); ?>
-		<div class="content">
-			<?php 
-				if(have_posts()):
-				while(have_posts()):
-					the_post();
-			?>	
-			<span class="content-title">
-				<?php the_title(); ?>
-			</span>
-			<div class="content-text">
-				<?php the_content(); ?>
-			</div>
+<?php
+/**
+ * The template for displaying pages
+ *
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages and that
+ * other "pages" on your WordPress site will use a different template.
+ *
+ * @package WordPress
+ * @subpackage Twenty_Fifteen
+ * @since Twenty Fifteen 1.0
+ */
 
-			<?php 
-				endwhile;
-				endif; 
-			?>
-			<!-- TABLE-TABS -->
-			<div id="table-tabs-id" class="table-tabs clearfix">
-			</div>
-			<!-- END OF TABLE-TABS -->
-			
-			<!-- TABLE-OUTPUT -->
-			<!--Выведем таблицы из мета поля -->
-			<?php
-			//получаем значения из мета поля
-			$meta_values = get_post_meta( $post->ID, 'product_tables_ids', true );
-			//првоерим значение мета данных, если все ок, продолжаем фанится
-			if ( $meta_values != '' )
-			{
-				global $wpdb; //объявим сразу
-				// переведем айдишники мета данных в массив
-				$table_arr = explode(',', $meta_values);
-				//для каждого элемента выведем талицу
-				for ( $i_main = 0; $i_main < count($table_arr); $i_main++ )
-				{
-					$table_id = $table_arr[$i_main];
-					//лежит в функциях
-					$Model = new productTableModel(); 
-					//проверим наличие таблицы
-					$is_table = $Model->is_table($table_id);
+get_header(); ?>
 
-					//если все ок, и таблица найдена, то получаем данные
-					if ( $is_table )
-					{	
-						//данные таблицы из бд
-						$table_data = $Model->get_table_data($table_id);
-						//а тут уже данные о товарах из бд
-						$tovars = $Model->get_tovars($table_id);
-						$table_name = $table_data['name']; // переменная имени таблицы, можешь ее использовать
-						// вьюха таблицы
-						$Model->view_table($table_data, $tovars);
-					}
-				}
-			}
-			?>
-			<!-- END OF TABLE OUTPUT -->
-		</div>
-	</div>
-</main> 
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		<?php
+		// Start the loop.
+		while ( have_posts() ) : the_post();
+
+			// Include the page content template.
+			get_template_part( 'content', 'page' );
+
+			// If comments are open or we have at least one comment, load up the comment template.
+			if ( comments_open() || get_comments_number() ) :
+				comments_template();
+			endif;
+
+		// End the loop.
+		endwhile;
+		?>
+
+		</main><!-- .site-main -->
+	</div><!-- .content-area -->
+
 <?php get_footer(); ?>

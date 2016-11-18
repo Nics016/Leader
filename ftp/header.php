@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" href="http://fond-lider.r01host.ru/wp-content/themes/LeaderTheme/css/style.css">
-	<link rel="stylesheet" href="http://fond-lider.r01host.ru/wp-content/themes/LeaderTheme/css/header.css">
-	<link rel="stylesheet" href="http://fond-lider.r01host.ru/wp-content/themes/LeaderTheme/css/footer.css">
-	<link rel="stylesheet" href="http://fond-lider.r01host.ru/wp-content/themes/LeaderTheme/css/main.css">
-	<link rel="stylesheet" href="http://fond-lider.r01host.ru/wp-content/themes/LeaderTheme/css/about.css">
 	<meta charset="UTF-8">
 	<title>Благотворительный фонд "Лидер"</title>
+	<?php wp_head(); ?>
 </head>
 <body>
 	<!-- MAIN-WRAP -->
@@ -15,7 +11,7 @@
 		<!-- HEADER -->
 		<header id="main-header">
 			<!-- HEADER-CONTAINER -->
-			<div class="container"> 
+			<div class="container">
 				<div class="header-pictures clearfix">
 					<img src="http://fond-lider.r01host.ru/wp-content/themes/LeaderTheme/img/top-pic1.jpg" alt="" class="header-pictures-pic1">
 					<a href="#"><img src="http://fond-lider.r01host.ru/wp-content/themes/LeaderTheme/img/top-pic2.jpg" alt="" class="header-pictures-pic2"></a>

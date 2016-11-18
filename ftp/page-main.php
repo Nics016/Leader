@@ -1,29 +1,64 @@
-<?php get_header();?>
+<?php 
+get_header();
+if (have_posts()):
+	while(have_posts()):
+		the_post();
+?>
 <!-- MAIN -->
 <main> 
-	<div class="slider">
-	</div>
+
+	<!-- SLIDER -->
+	<?php 
+	$show_slider = get_field('show_slider');
+	$president_avatar = get_field('president_avatar');
+	$president_avatar = $president_avatar['url'];
+	$president_name = get_field('president_name');
+	if ( $show_slider ):
+	?>
+		<div class="main-slider">
+			<ul class="bxslider" style="margin: 0;">
+				<?php
+				//отобразим слайдер
+				$slider_images = get_field('slider_images');
+				foreach ($slider_images as $slider_image):
+				?> 
+				<li>
+					<div class="slider-image">
+						<img src="<?= $slider_image['url']  ?>" alt="">
+					</div>
+				</li>
+			  	<?php endforeach; ?>
+			</ul>
+		</div>
+	<?php endif; ?>
+	<!-- END OF SLIDER -->
+
 	<div class="about">
 		<div class="container">
 			<span class="about-title">О нас</span>
 			<div class="about-info-container">
 				<div class="about-info clearfix">
 					<span class="about-info-pic">
+						<img src="<?= $president_avatar ?>" alt="">
 					</span>
 					<span class="about-info-text">
-						<p>Благотворительный фонд Михаила Федоровича был создан в 2008 году.</p>
-						<p>Фонд занимается организацией помощи детям с онкологическими и другими тяжёлыми заболеваниями головного мозга.</p>
-						<p>Основные направления работы Фонда: помомщь в организации обследования и лечения детей, покупка медикаментов, организация реабилитационных программ, помощь профильным отделениям российских медицинских учреждений, повышение квалификации врачей и информационная работа с родителями, направленная на улучшение ранней диагностики тяжелых заболеваний головного мозга.</p>
-						<p>Наша миссия - вовремя оказаться рядом и помочь, ведь тогда ребенка с заболеванием головного мозга можно спасти!</p>
-						<p>Опухоли головного мозга составляют примерно 96% всех опухолей центральной нервной системы у детей, и занимают второе место после лейкозов по частоте онкологических заболеваний у детей. Каждый год около 1200 детей в России сталкиваются с диагнозом опухоль головного мозга. Болезнь редко удается победить в первый год, поэтому количество нуждающихся в помощи с каждым годом растет.</p>
-					</span>
+						<?php 
+						the_content();
+						?>		 			
+					</span> 
 				</div>
-				<span class="about-info-subtext">
-					Президент Фонда : Михаил Федоров
+				<span class="about-info-subtext clearfix">
+					<span class="about-info-subtext-text"> 
+						Президент Фонда : <?= $president_name ?>
+					</span>
 				</span>
 			</div>
 		</div>
 	</div>
 </main>
 <!-- END OF MAIN -->
-<?php get_footer(); ?>
+<?php 
+endwhile;
+endif;
+get_footer(); 
+?>

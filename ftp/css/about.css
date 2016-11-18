@@ -23,6 +23,7 @@
 	padding-top: 20px;
 	padding-left: 20px;
 	padding-bottom: 5px;
+    margin-top: 10px;
 }
 
 .project-info{
@@ -35,9 +36,13 @@
 	float: left;
 	width: 120px;
 	height: 120px;
-	background-image: url("../img/main-about-pic.png");
-	background-repeat: no-repeat;
-	background-size: 120px 120px;
+	overflow: hidden;
+	border-radius: 50%;
+}
+
+.project-info-pic img {
+	display: block;
+	height: 100%;
 }
 
 .project-info-text{
@@ -47,17 +52,21 @@
 	margin-left: 50px;
 	color: #818D97;
 	font-family: SegoeUIRegular;
-	font-size: 16px;
+	font-size: 16px; 
 }
-
+ 
 .project-info-subtext{
 	display: block;
-	margin-top: 30px;
-	margin-left: 820px;
-	width: 350px;
-	color: #818D97;
-	font-family: SegoeUIRegular;
-	font-size: 18px;
+  margin-top: 30px;
+  color: #818D97;
+  font-family: SegoeUIRegular;
+  font-size: 18px;
+}
+
+.project-info-subtext-text{
+	display: block;
+	float: right;
+	margin-right: 70px;
 }
 
 .project-faces{
@@ -69,6 +78,10 @@
 	margin-left: 0;
 }
 
+.project-faces-element:hover{
+	border: 2px solid #FF4444;
+}
+
 .project-faces-element{
 	display: block;
 	float: left;
@@ -76,9 +89,15 @@
 	width: 120px;
 	height: 120px;
 	outline: none;
-	background-image: url("../img/main-about-pic.png");
-	background-repeat: no-repeat;
-	background-size: 120px 120px;
+	overflow: hidden;
+	border-radius: 50%;
+	border: 2px solid #fff;
+	transition: border .3s ease-in;
+}
+
+.project-faces-element img {
+	display: block;
+	height: 100%;
 }
 
 .video{
@@ -112,13 +131,8 @@
 	color: #818D97;	
 	font-family: SegoeUIBold;
 	font-size: 22px;
-}
-
-.video-info-hr{
-	position: relative;
-	height: 1px;
-	background-color: #000;
-	margin-top: 4px;
+	padding-bottom: 5px;
+	border-bottom: 2px solid black;
 }
 
 .video-info-text{
@@ -136,4 +150,8 @@
 	background-image: url("../img/about-children.png");
 	background-repeat: no-repeat;
 	background-size: 100% 450px;
+}
+
+.youtube {
+	float: left;
 }

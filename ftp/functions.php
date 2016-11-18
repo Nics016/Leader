@@ -4,16 +4,38 @@ add_filter('show_admin_bar', '__return_false'); //скроем на время �
 //подключаем стили
 function _s_styles()
 {
-	wp_register_style('main', get_template_directory_uri(). '/css/style.css');
-	wp_enqueue_style('main', get_template_directory_uri(). '/css/style.css');
+	
+
+	// Header
 	wp_register_style('header', get_template_directory_uri(). '/css/header.css');
 	wp_enqueue_style('header', get_template_directory_uri(). '/css/header.css');
+
+	// Общие стили
+	wp_register_style('total', get_template_directory_uri(). '/css/style.css');
+	wp_enqueue_style('total', get_template_directory_uri(). '/css/style.css');
+
+	// Footer
 	wp_register_style('footer', get_template_directory_uri(). '/css/footer.css');
 	wp_enqueue_style('footer', get_template_directory_uri(). '/css/footer.css');
-	wp_register_style('main_page', get_template_directory_uri(). '/css/main.css');
-	wp_enqueue_style('main_page', get_template_directory_uri(). '/css/main.css');
-	wp_register_style('about', get_template_directory_uri(). '/css/about.css');
-	wp_enqueue_style('about', get_template_directory_uri(). '/css/about.css');
+
+	// Главная
+	if ( is_page("main") )
+	{
+		wp_register_style('main', get_template_directory_uri(). '/css/main.css');
+		wp_enqueue_style('main', get_template_directory_uri(). '/css/main.css');
+
+		//bxslider
+		wp_register_style('bxslider', get_template_directory_uri(). '/plugins/bxslider/jquery.bxslider.css');
+		wp_enqueue_style('bxslider', get_template_directory_uri(). '/plugins/bxslider/jquery.bxslider.css');
+	}
+ 
+	// О проекте
+
+	wp_register_style('about_css', get_template_directory_uri(). '/css/about.css');
+	wp_enqueue_style('about_css', get_template_directory_uri(). '/css/about.css');
+
+
+
 }
 add_action('wp_enqueue_scripts', '_s_styles');
 
@@ -25,8 +47,30 @@ function _s_scripts()
 	wp_deregister_script('jquery');
 	wp_register_script('jquery',  get_template_directory_uri(). '/js/jquery.js');
 	wp_enqueue_script('jquery');
+
+	if ( is_page("main") )
+	{
+
+		//bxslider
+		wp_register_script('bxslider',  get_template_directory_uri(). '/plugins/bxslider/jquery.bxslider.min.js', array("jquery"));
+		wp_enqueue_script('bxslider');
+
+		//скрипты для главной
+		wp_register_script('main',  get_template_directory_uri(). '/js/main.js', array("jquery", "bxslider"));
+		wp_enqueue_script('main');
+
+
+	}
+
+	wp_register_script('common_script',  get_template_directory_uri(). '/js/common.js', array("jquery"));
+	wp_enqueue_script('common_script');
+
+
 }
+
 add_action('wp_enqueue_scripts', '_s_scripts');
+
+
 
 //регистрация меню
 if ( function_exists( 'register_nav_menus' ) )

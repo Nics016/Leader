@@ -2,7 +2,7 @@
 <!-- MAIN -->
 <main>
 	<!-- PROJECT -->
-	<div class="project">
+	<div class="project"> 
 		<div class="container">
 			<span class="project-title">О проекте</span>
 			<div class="project-info-container">
@@ -17,8 +17,10 @@
 						<p>Опухоли головного мозга составляют примерно 96% всех опухолей центральной нервной системы у детей, и занимают второе место после лейкозов по частоте онкологических заболеваний у детей. Каждый год около 1200 детей в России сталкиваются с диагнозом опухоль головного мозга. Болезнь редко удается победить в первый год, поэтому количество нуждающихся в помощи с каждым годом растет.</p>
 					</span>
 				</div>
-				<span class="project-info-subtext">
-					Президент Фонда : Михаил Федоров
+				<span class="project-info-subtext clearfix">
+					<span class="project-info-subtext-text"> 
+						Президент Фонда : <?= $president_name ?> 
+					</span>
 				</span>
 				<div class="project-faces clearfix">
 					<a href="#" class="project-faces-element"></a>
