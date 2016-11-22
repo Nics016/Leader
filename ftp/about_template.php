@@ -19,7 +19,6 @@ if ( have_posts() ):
 	$president_avatar = $president_avatar["url"];
 
 	$president_name = get_field("president_name");
-
 	?>
 	<div class="project">
 		<div class="container">
