@@ -37,6 +37,7 @@ body{
 	display: block;
 	width: 1170px;
 	margin: 0 auto;
+    overflow: hidden;
 }
 
 .clearfix:after{

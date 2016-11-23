@@ -63,6 +63,9 @@ if ( have_posts() ):
 
 	<!-- VIDEO -->
 	<?php
+	// end of category cycle
+		endwhile;
+	endif;
 	$video_link = get_field("video_link");
 	$video_title = get_field("video_title");
 	$video_description = get_field("video_description");
@@ -82,17 +85,40 @@ if ( have_posts() ):
 	</div>
 	<!-- END OF VIDEO -->
 
-	<!-- CHILDREN -->
-	<div class="children">
-		
+	<!-- CATEGORIES -->
+	<div class="categories">
+		<div class="container clearfix">
+		<?php 
+			// запрашиваем категорию "Архив""
+			$post_categories = wp_get_post_categories( get_the_ID() );
+			$current_category_ID = $post_categories[0];
+			$categories = get_categories( array(
+			    'parent'  => $current_category_ID
+			) );
+			$catt = $categories[0];
+
+			// выводим посты категории Архив
+			$archive_posts = new WP_Query('cat='.$catt->term_id."&posts_per_page=18");
+			while ( $archive_posts->have_posts() ):
+				$archive_posts->the_post();
+		 ?>
+			<a class="categories-element" href="<?php the_permalink(); ?>">
+				<img src="<?php the_post_thumbnail_url(); ?>" class="categories-element-pic">
+			</a>
+		<?php 
+			endwhile;
+			wp_reset_postdata();
+		 ?>
+		</div>
 	</div>
-	<!-- END OF CHILDREN -->
+	<!-- END OF CATEGORIES -->
 </main>
 <!-- END OF MAIN -->
 
 <div id="modal">
 	
 	<?php
+
 	if ( have_rows("project_curators") ):
 		$i = 0;
 
@@ -164,9 +190,7 @@ if ( have_posts() ):
 	?>
 
 </div>
-<?php 
 
-endwhile;
-endif;
+<?php 
 get_footer(); 
 ?>

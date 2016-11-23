@@ -30,12 +30,20 @@ function _s_styles()
 	}
  
 	// О проекте
-
 	wp_register_style('about_css', get_template_directory_uri(). '/css/about.css');
 	wp_enqueue_style('about_css', get_template_directory_uri(). '/css/about.css');
 
+	// Категория Архив
+	wp_register_style('article_css', get_template_directory_uri(). '/css/article.css');
+	wp_enqueue_style('article_css', get_template_directory_uri(). '/css/article.css');
 
+	// Статья
+	wp_register_style('single_article_css', get_template_directory_uri(). '/css/single_article.css');
+	wp_enqueue_style('single_article_css', get_template_directory_uri(). '/css/single_article.css');
 
+	// Контакты главные
+	wp_register_style('contacts_css', get_template_directory_uri(). '/css/contacts.css');
+	wp_enqueue_style('contacts_css', get_template_directory_uri(). '/css/contacts.css');
 }
 add_action('wp_enqueue_scripts', '_s_styles');
 
@@ -91,4 +99,6 @@ function custom_menu(){
 // Добавляем кнопку добавления миниатюры поста
 add_theme_support( 'post-thumbnails' );
 
+// Добавляем страничку настроек темы
+require_once("options_page.php");
 ?>
